@@ -16,7 +16,7 @@ Module Module1
         Dim pageUrl As String
         If args.Count = 1 Then
             pageUrl = args(0).Substring(args(0).IndexOf(":") + 1)
-            Console.Write($"下载页面地址 :{pageUrl}")
+            Console.WriteLine($"下载页面地址 :{pageUrl}")
         Else
             Console.Write($"输入下载页面地址 :")
             pageUrl = Console.ReadLine
