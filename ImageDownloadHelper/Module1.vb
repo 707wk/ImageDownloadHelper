@@ -4,8 +4,6 @@ Module Module1
 
     Sub Main(args As String())
 
-        Console.WriteLine(System.Reflection.Assembly.GetExecutingAssembly().Location)
-
         ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 Or
             SecurityProtocolType.Tls Or
             SecurityProtocolType.Tls11 Or
