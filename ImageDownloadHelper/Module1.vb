@@ -1,8 +1,12 @@
 ﻿Imports System.Net
+Imports Microsoft.WindowsAPICodePack.Taskbar
 
 Module Module1
 
+    Public tmpTaskbarManager As TaskbarManager
+
     Sub Main(args As String())
+        tmpTaskbarManager = TaskbarManager.Instance
 
         ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 Or
             SecurityProtocolType.Tls Or
@@ -29,6 +33,8 @@ Module Module1
             Exit Sub
 
         Catch ex As Exception
+            tmpTaskbarManager.SetProgressState(TaskbarProgressBarState.Error)
+
             Console.WriteLine($"下载异常 :{ex.Message}")
             If MsgBox($"下载异常 {ex.Message},是否尝试继续下载?",
                       MsgBoxStyle.YesNo,

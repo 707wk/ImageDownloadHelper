@@ -39,8 +39,11 @@ Public Class nhentai_net
             titleNodes = doc.DocumentNode.SelectNodes("//a[@class='gallerythumb']")
             For Each item In titleNodes
 
+                tmpTaskbarManager.SetProgressValue(titleNodes.IndexOf(item), titleNodes.Count)
+                Console.Title = $"下载进度: {titleNodes.IndexOf(item) + 1}/{titleNodes.Count}"
+
                 Console.SetCursorPosition(0, Console.CursorTop)
-                Console.Write($"下载进度 :{titleNodes.IndexOf(item) + 1,4}/{titleNodes.Count}")
+                Console.Write(Console.Title)
 
                 doc = webClient.Load($"https://{PageUri.Host}{item.Attributes("href").Value}")
 
