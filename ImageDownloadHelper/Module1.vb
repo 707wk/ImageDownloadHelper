@@ -35,13 +35,18 @@ Module Module1
         Catch ex As Exception
             tmpTaskbarManager.SetProgressState(TaskbarProgressBarState.Error)
 
+            Console.WriteLine()
             Console.WriteLine($"下载异常 :{ex.Message}")
-            If MsgBox($"下载异常 {ex.Message},是否尝试继续下载?",
-                      MsgBoxStyle.YesNo,
-                      pageUrl) <> MsgBoxResult.Yes Then
-            Else
-                Process.Start(System.Reflection.Assembly.GetExecutingAssembly().Location, args(0))
-            End If
+
+            For i001 = 5 To 1 Step -1
+                Console.SetCursorPosition(0, Console.CursorTop)
+                Console.Write($"{i001} 秒后尝试重新下载")
+
+                Threading.Thread.Sleep(1000)
+            Next
+
+            Process.Start(System.Reflection.Assembly.GetExecutingAssembly().Location, args(0))
+
             Exit Sub
         End Try
 

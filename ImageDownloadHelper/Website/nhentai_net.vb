@@ -40,7 +40,11 @@ Public Class nhentai_net
             For Each item In titleNodes
 
                 tmpTaskbarManager.SetProgressValue(titleNodes.IndexOf(item), titleNodes.Count)
-                Console.Title = $"下载进度: {titleNodes.IndexOf(item) + 1}/{titleNodes.Count}"
+                Console.Title = $"下载: {titleNodes.IndexOf(item) + 1}/{titleNodes.Count}"
+
+                'If titleNodes.IndexOf(item) > 10 Then
+                '    Throw New Exception("测试异常")
+                'End If
 
                 Console.SetCursorPosition(0, Console.CursorTop)
                 Console.Write(Console.Title)
