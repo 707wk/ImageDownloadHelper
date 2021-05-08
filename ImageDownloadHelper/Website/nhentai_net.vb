@@ -21,20 +21,21 @@ Public Class nhentai_net
                 Throw New Exception("未找到标题信息")
             End If
 
-            Dim title As String = $"{HttpUtility.HtmlDecode(titleNodes(0).InnerText)}".
-                        Replace("\", "_").
-                        Replace("/", "_").
-                        Replace(":", "_").
-                        Replace("*", "_").
-                        Replace("?", "_").
-                        Replace("""", "_").
-                        Replace("<", "_").
-                        Replace(">", "_").
-                        Replace("|", "_")
+            Dim title As String = HttpUtility.HtmlDecode(titleNodes(0).InnerText)
+
+            For Each invalidPathChar In System.IO.Path.GetInvalidFileNameChars
+                title = title.Replace(invalidPathChar, "_")
+            Next
+
+            For Each invalidPathChar In System.IO.Path.GetInvalidPathChars
+                title = title.Replace(invalidPathChar, "_")
+            Next
+
+            Console.WriteLine($"标题 :{title}")
+
             Dim tmpPath As String = $"{DirectoryPath}\{title}"
 
             System.IO.Directory.CreateDirectory(tmpPath)
-            Console.WriteLine($"标题 :{title}")
 
             titleNodes = doc.DocumentNode.SelectNodes("//a[@class='gallerythumb']")
             For Each item In titleNodes

@@ -24,7 +24,18 @@ Module Module1
             pageUrl = Console.ReadLine
         End If
 
+        Console.WriteLine($"等待中 :{Now}")
+        Console.Title = "等待中"
+        Do
+            If GetDownloadingProgrameCount() < 5 Then
+                Exit Do
+            End If
+
+            Threading.Thread.Sleep(3000)
+        Loop
+
         Console.WriteLine($"开始下载 :{Now}")
+        Console.Title = "开始下载"
         Try
             Dim tmp = _WebsiteFactory.Create(pageUrl)
             tmp.DirectoryPath = "D:\Downloads"
@@ -41,6 +52,7 @@ Module Module1
             For i001 = 5 To 1 Step -1
                 Console.SetCursorPosition(0, Console.CursorTop)
                 Console.Write($"{i001} 秒后尝试重新下载")
+                Console.Title = "下载异常"
 
                 Threading.Thread.Sleep(1000)
             Next
@@ -51,5 +63,25 @@ Module Module1
         End Try
 
     End Sub
+
+    Private Function GetDownloadingProgrameCount() As Integer
+
+        Dim currentProcess = Process.GetCurrentProcess
+
+        Dim ProcessItems = Process.GetProcessesByName(currentProcess.ProcessName)
+
+        Dim DownloadingProgrameCount = 0
+
+        For Each item In ProcessItems
+
+            If item.MainWindowTitle.Contains("下载") Then
+                DownloadingProgrameCount += 1
+            End If
+
+        Next
+
+        Return DownloadingProgrameCount
+
+    End Function
 
 End Module

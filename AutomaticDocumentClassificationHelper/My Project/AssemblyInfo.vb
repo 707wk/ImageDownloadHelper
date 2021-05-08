@@ -8,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 '查看程序集特性的值
 
-<Assembly: AssemblyTitle("ImageDownloadHelper")>
+<Assembly: AssemblyTitle("AutomaticDocumentClassificationHelper")>
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("ImageDownloadHelper")>
-<Assembly: AssemblyCopyright("Copyright ©  2019")>
+<Assembly: AssemblyProduct("AutomaticDocumentClassificationHelper")>
+<Assembly: AssemblyCopyright("Copyright ©  2021")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
 
 '如果此项目向 COM 公开，则下列 GUID 用于 typelib 的 ID
-<Assembly: Guid("8bfcad48-e883-4b82-abf1-cdbb079d3534")>
+<Assembly: Guid("4a6e67db-b732-438b-90f6-4667c2d9724f")>
 
 ' 程序集的版本信息由下列四个值组成: 
 '
@@ -32,4 +32,4 @@ Imports System.Runtime.InteropServices
 ' <Assembly: AssemblyVersion("1.0.*")>
 
 <Assembly: AssemblyVersion("1.0.0.0")>
-<Assembly: AssemblyFileVersion("1.0.2105.15")>
+<Assembly: AssemblyFileVersion("1.0.2105.32")>
