@@ -3,8 +3,8 @@ Windows Registry Editor Version 5.00
 @="URL:IDH Protocol Handler"
 "URL Protocol"=""
 [HKEY_CLASSES_ROOT\IDH\DefaultIcon]
-@="T:\\ImageDownloadHelper\\ImageDownloadHelper\\bin\\ImageDownloadHelper.exe"
+@="T:\\Private\\ImageDownloadHelper\\Code\\ImageDownloadHelper\\bin\\ImageDownloadHelper.exe"
 [HKEY_CLASSES_ROOT\IDH\shell]
 [HKEY_CLASSES_ROOT\IDH\shell\open]
 [HKEY_CLASSES_ROOT\IDH\shell\open\command]
-@="\"T:\\ImageDownloadHelper\\ImageDownloadHelper\\bin\\ImageDownloadHelper.exe\" \"%1\""
+@="\"T:\\Private\\ImageDownloadHelper\\Code\\ImageDownloadHelper\\bin\\ImageDownloadHelper.exe\" \"%1\""

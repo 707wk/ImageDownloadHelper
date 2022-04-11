@@ -15,7 +15,7 @@
             DirectoryPath = System.IO.Directory.GetCurrentDirectory
         End If
 
-        Dim fileList = IO.Directory.GetFiles(DirectoryPath)
+        Dim fileList = IO.Directory.GetFiles(DirectoryPath, "*.zip")
         Dim count = fileList.Count
 
         Console.WriteLine($"文件数 : {count}")
