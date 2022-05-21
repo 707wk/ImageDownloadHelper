@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{62795362-C96D-402C-B2BB-28B057811CC0}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>ImageDownloadHelper.Module1</StartupObject>
+    <StartupObject>ImageDownloadHelper.MainModule</StartupObject>
     <RootNamespace>ImageDownloadHelper</RootNamespace>
     <AssemblyName>ImageDownloadHelper</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -80,7 +80,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Module1.vb" />
+    <Compile Include="MainModule.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -97,7 +97,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Website\nhentai_net.vb" />
+    <Compile Include="Website\SiteNhentai_net.vb" />
+    <Compile Include="Website\Site177pica_com.vb" />
     <Compile Include="Website\_BaseWebsite.vb" />
     <Compile Include="Website\_WebsiteFactory.vb" />
   </ItemGroup>

@@ -2,7 +2,7 @@
 Imports System.Deployment.Application
 Imports System.Web
 
-Public Class nhentai_net
+Public Class SiteNhentai_net
     Inherits _BaseWebsite
 
     Public Sub New(url As String)
@@ -14,7 +14,7 @@ Public Class nhentai_net
 
             Dim webClient As HtmlAgilityPack.HtmlWeb = New HtmlAgilityPack.HtmlWeb()
             Dim doc As HtmlAgilityPack.HtmlDocument = webClient.Load(PageUri)
-            Debug.WriteLine(doc.DocumentNode.OuterHtml)
+            'Debug.WriteLine(doc.DocumentNode.OuterHtml)
             Dim titleNodes As HtmlAgilityPack.HtmlNodeCollection = doc.DocumentNode.SelectNodes("//div[@id='info']/h1")
 
             If titleNodes Is Nothing Then
@@ -33,9 +33,9 @@ Public Class nhentai_net
 
             Console.WriteLine($"标题 :{title}")
 
-            Dim tmpPath As String = $"{DirectoryPath}\{title}"
+            DirectoryPath = $"{DirectoryPath}\{title}"
 
-            System.IO.Directory.CreateDirectory(tmpPath)
+            System.IO.Directory.CreateDirectory(DirectoryPath)
 
             titleNodes = doc.DocumentNode.SelectNodes("//a[@class='gallerythumb']")
             For Each item In titleNodes
@@ -55,11 +55,11 @@ Public Class nhentai_net
                 Dim imageNodes As HtmlAgilityPack.HtmlNodeCollection = doc.DocumentNode.SelectNodes("//section[@id='image-container']//img")
                 Dim imageSrc As String = $"{imageNodes(0).Attributes("src").Value}"
 
-                If IO.File.Exists($"{tmpPath}\{IO.Path.GetFileName(imageSrc)}") Then
+                If IO.File.Exists($"{DirectoryPath}\{IO.Path.GetFileName(imageSrc)}") Then
                     Continue For
                 End If
 
-                downladWebClient.DownloadFile(imageSrc, $"{tmpPath}\{IO.Path.GetFileName(imageSrc)}")
+                downladWebClient.DownloadFile(imageSrc, $"{DirectoryPath}\{IO.Path.GetFileName(imageSrc)}")
 
             Next
 

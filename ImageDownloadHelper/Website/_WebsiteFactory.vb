@@ -4,11 +4,11 @@
 
     Public Shared Function Create(pageUrl As String) As _BaseWebsite
 
-        If nhentai_net.IsEquals(pageUrl) Then
-            Return New nhentai_net(pageUrl)
+        If SiteNhentai_net.IsEquals(pageUrl) Then
+            Return New SiteNhentai_net(pageUrl)
 
-            'ElseIf pixiv_net_artworks.IsEquals(pageUrl) Then
-            '    Return New pixiv_net_artworks(pageUrl)
+        ElseIf Site177pica_com.IsEquals(pageUrl) Then
+            Return New Site177pica_com(pageUrl)
 
             'ElseIf pixiv_net_users.IsEquals(pageUrl) Then
             '    Return New pixiv_net_users(pageUrl)

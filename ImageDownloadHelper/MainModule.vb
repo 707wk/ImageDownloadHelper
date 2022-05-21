@@ -1,7 +1,7 @@
 ﻿Imports System.Net
 Imports Microsoft.WindowsAPICodePack.Taskbar
 
-Module Module1
+Module MainModule
 
     Public tmpTaskbarManager As TaskbarManager
 
