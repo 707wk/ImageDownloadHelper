@@ -3,10 +3,10 @@ Imports Microsoft.WindowsAPICodePack.Taskbar
 
 Module MainModule
 
-    Public tmpTaskbarManager As TaskbarManager
+    'Public tmpTaskbarManager As TaskbarManager
 
     Sub Main(args As String())
-        tmpTaskbarManager = TaskbarManager.Instance
+        'tmpTaskbarManager = TaskbarManager.Instance
 
         ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 Or
             SecurityProtocolType.Tls Or
@@ -44,7 +44,7 @@ Module MainModule
             Exit Sub
 
         Catch ex As Exception
-            tmpTaskbarManager.SetProgressState(TaskbarProgressBarState.Error)
+            'tmpTaskbarManager.SetProgressState(TaskbarProgressBarState.Error)
 
             Console.WriteLine()
             Console.WriteLine($"下载异常 :{ex.Message}")

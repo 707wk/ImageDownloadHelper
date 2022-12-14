@@ -40,7 +40,7 @@ Public Class SiteNhentai_net
             titleNodes = doc.DocumentNode.SelectNodes("//a[@class='gallerythumb']")
             For Each item In titleNodes
 
-                tmpTaskbarManager.SetProgressValue(titleNodes.IndexOf(item), titleNodes.Count)
+                'tmpTaskbarManager.SetProgressValue(titleNodes.IndexOf(item), titleNodes.Count)
                 Console.Title = $"下载: {titleNodes.IndexOf(item) + 1}/{titleNodes.Count}"
 
                 'If titleNodes.IndexOf(item) > 10 Then

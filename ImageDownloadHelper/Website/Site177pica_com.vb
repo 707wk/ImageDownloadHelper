@@ -62,7 +62,7 @@ Public Class Site177pica_com
         Dim titleNodes = doc.DocumentNode.SelectNodes("//div[@class='single-content']/p/img")
         For Each item In titleNodes
 
-            tmpTaskbarManager.SetProgressValue(index, count)
+            'tmpTaskbarManager.SetProgressValue(index, count)
             Console.Title = $"下载: 第 {index}/{count} 页 {titleNodes.IndexOf(item) + 1}/{titleNodes.Count} 个"
 
             'If titleNodes.IndexOf(item) > 10 Then
