@@ -1,4 +1,6 @@
-﻿Module Module1
+﻿Imports Wangk.Base
+
+Module Module1
 
     Sub Main()
 
@@ -28,14 +30,14 @@
             Console.SetCursorPosition(0, Console.CursorTop)
             Console.Write($"处理第 {i001 + 1}/{count} 个文件")
 
-            Dim fileName = IO.Path.GetFileName(fileList(i001))
+            Dim fileName = IO.Path.GetFileName(fileList(i001)).GetSafeFileOrFolderName
 
             If fileName.Chars(0) <> "[" Then
                 Continue For
             End If
             processedCount += 1
 
-            Dim authorName = fileName.Substring(1, fileName.IndexOf("]") - 1)
+            Dim authorName = fileName.Substring(1, fileName.IndexOf("]") - 1).GetSafeFileOrFolderName
 
             Dim groupName = "…"c
 
